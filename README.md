@@ -1,0 +1,1 @@
+mongodb://fm318610_db_user:pvXfNdRmPpiiQey8@ac-mbwslyq-shard-00-00.wcdbovz.mongodb.net:27017,ac-mbwslyq-shard-00-01.wcdbovz.mongodb.net:27017,ac-mbwslyq-shard-00-02.wcdbovz.mongodb.net:27017/?ssl=true&replicaSet=atlas-wvkszs-shard-0&authSource=admin&appName=Cluster0
