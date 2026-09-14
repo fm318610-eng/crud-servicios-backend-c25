@@ -1,7 +1,9 @@
 //const express = require('express');
-import express from 'express'
-import cors from 'cors'
-import morgan from 'morgan'
+import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
+import { dirname } from "path";
+import { fileURLToPath } from 'url';
 
 class Server {
     constructor() {
@@ -18,6 +20,9 @@ class Server {
         this.app.use(morgan('dev')) //muestra por terminal informacion de la comunicacion HTTP
         this.app.use(express.json()) //podemos leer los datos en formason JSON que llegan del BODY del request
         //configurar un archivo estatico
+        const __dirname = dirname(fileURLToPath(import.meta.url))
+        //console.log(__dirname + "/../../public")
+        this.app.use(express.static(__dirname + "/../../public"))
     }
 
     listen() {
