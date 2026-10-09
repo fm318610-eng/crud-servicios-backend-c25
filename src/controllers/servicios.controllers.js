@@ -18,3 +18,65 @@ export const crearServicio = async (req, res )=>{
         res.status(500).json({mensaje: 'Ocurrio un error al intentar crear un servicio'})
     }
 };
+
+export const listarServicios = async (req, res) =>{
+    try {
+        const servicios = await Servicio.find();
+        res.status(200).json(servicios);
+    } catch (error) {
+        console.error(error);
+        res
+        .status(500)
+        .json({ mensaje: "Ocurrio un error al intentar listar los servicios"})
+    }
+};
+
+export const servicioBuscado = async (req, res) =>{
+    try {
+        //console.log(req.params.id)
+        const servicio = await Servicio.findById(req.params.id)
+        //si no encontre el servicio
+        if(!servicio){
+            return res.status(404).json({mensaje: "Servicio no encontrado"})
+        }
+        res.status(200).json(servicio)
+    } catch (error) {
+        console.error(error);
+        res
+        .status(500)
+        .json({mensaje: "Servicio creado con extio"})
+    }
+};
+
+export const borrarServicio = async (req, res) =>{
+    try {
+        const servicioBorrado = await Servicio.findByIdAndDelete(req.params.id)
+        console.log(servicioBorrado)
+        if(!servicioBorrado){
+            return res.status(404).json({mensaje: "no se encontró el servicio para borrar"})
+        }
+        res.status(200).json({mensaje:"El servicio fue borrado correctamente"})
+        
+    } catch (error) {
+        console.error(error);
+        res
+        .status(500)
+        .json({mensaje: "Ocurrio un error al borrar el servicio"});
+    }
+};
+
+    export const editarServicio = async (req, res) =>{
+        try {
+         const servicioEditado = await Servicio.findByIdAndUpdate(req.params.id, req.body,{new:true});
+         if(!servicioEditado){
+            return res.status(404).json({mensaje: "El servicio no fue encontrado"})
+         }  
+         res.status(200).json(servicioEditado)
+        } catch (error) {
+            console.error(error);
+            res
+            .status(500)
+            .json({mensaje: "Ocurrio un error al editar un servicio"});
+        }
+    };
+
