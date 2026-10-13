@@ -21,7 +21,8 @@ const reglasServicio = [
     .withMessage("El precio debe ser en formato numérico")
     .isFloat({
       min: 50,
-    }).withMessage('El precio debe ser como minimo desde $50'),
+    })
+    .withMessage("El precio debe ser como minimo desde $50"),
   body("categoria")
     .notEmpty()
     .withMessage("La categoria es un dato obligatorio")
@@ -30,6 +31,25 @@ const reglasServicio = [
     .isIn(["Desarrollo Web", "Backend & API", "Consultoria"])
     .withMessage(
       'La categoria debe ser una de las siguientes opciones: "Desarrollo Web", "Backend & API", "Consultoria"',
+    ),
+  body("descripcion")
+    .notEmpty()
+    .withMessage("La descripcion es un campo obligatorio")
+    .isString()
+    .withMessage("La descripcion debe ser un string")
+    .isLength({
+      min: 10,
+      max: 500,
+    })
+    .withMessage("La descripcion debe contener entre 10 y 500 caracteres"),
+  body("imagen")
+    .notEmpty()
+    .withMessage("La imagen es un dato obligatorio")
+    .isString()
+    .withMessage("La imagen debe ser un string")
+    .matches(/^https:\/\/.+\.(jpg|jpeg|png|webp|avif|svg)$/)
+    .withMessage(
+      "La imagen debe ser una url valida, ademas de terminar en una de las siguientes extensiones: jpg|jpeg|png|webp|avif|svg ",
     ),
   resultadoValidacion,
 ];
