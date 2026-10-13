@@ -9,9 +9,9 @@ export const crearServicio = async (req, res )=>{
     try {
         console.log(req.body)
         // deberia validar los datos del body
-        const servicioNuevo = new Servicio(req.body)
+        const servicioNuevo = new Servicio(req.body);
         //guadrar en la base de datos
-        await servicioNuevo.save()
+        await servicioNuevo.save();
     res.status(201).json({mensaje: 'Servicio creado correctamente'})
     } catch (error) {
         console.error(error)
