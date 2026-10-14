@@ -1,10 +1,25 @@
+# Backend crud-servicios
+descripcion
+
+Dependencias
+-cors
+-morgan
+-express
+-moongose
+
+## Pasos para clonar el proyecto
+agregar los pasos
+
+
 mongodb://fm318610_db_user:pvXfNdRmPpiiQey8@ac-mbwslyq-shard-00-00.wcdbovz.mongodb.net:27017,ac-mbwslyq-shard-00-01.wcdbovz.mongodb.net:27017,ac-mbwslyq-shard-00-02.wcdbovz.mongodb.net:27017/?ssl=true&replicaSet=atlas-wvkszs-shard-0&authSource=admin&appName=Cluster0
 
-# Backend crud-servicios
 
-## Pasos para clonar el repo
+
+
 
 ## Endpoints
+
+[Consulta la documentación aquí](https://documenter.getpostman.com/view/58046900/2sBYHRV2LZ?utm_source=postman-web-app)
 
 - Crear servicios: http://localhost:3000/api/servicios/
 - método: POST
