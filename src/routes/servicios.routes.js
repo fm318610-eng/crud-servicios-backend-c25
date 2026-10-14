@@ -6,7 +6,7 @@ import {
   borrarServicio,
   editarServicio,
 } from "../controllers/servicios.controllers.js";
-import reglasServicio from "../middlewares/validarServicio.js";
+import { reglasServicio, vaildarID } from "../middlewares/validarServicio.js";
 
 
 const router = Router();
@@ -18,6 +18,6 @@ router
   .route("/:id")
   .get(servicioBuscado)
   .delete(borrarServicio)
-  .put(reglasServicio, editarServicio);
+  .put([vaildarID, reglasServicio], editarServicio);
 
 export default router;
